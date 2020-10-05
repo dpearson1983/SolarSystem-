@@ -6,8 +6,8 @@
 #include "include/planet.hpp"
 
 std::vector<planet> getPlanets(std::string file) {
-    double G = 5.30351E-11;
-    double M_Sun = 333000;
+    double G = 5.3039E-11;
+    double M_Sun = 334875;
     std::vector<planet> planets;
     std::ifstream fin(file);
     while (!fin.eof()) {

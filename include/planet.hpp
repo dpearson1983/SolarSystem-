@@ -38,7 +38,7 @@ class planet{
     std::vector<double> pos;
     std::vector<double> vel;
     std::string name;
-    double mass, M_Sun, G;
+    double a, e, mass, M_Sun, G;
     
     std::vector<double> f(double h, double t, std::vector<double> &y, std::vector<planet> &planets) {
         double r_mag = std::sqrt(y[0]*y[0] + y[2]*y[2] + y[4]*y[4]);
@@ -47,6 +47,7 @@ class planet{
         std::vector<double> acc = {F_g*r_hat[0], F_g*r_hat[1], F_g*r_hat[2]};
         for (size_t i = 0; i < planets.size(); ++i) {
             if (planets[i].getName() != this->name) {
+                //std::cout << this->name << " " << planets[i].getName() << "\n";
                 std::vector<double> pos = planets[i].getPos();
                 std::vector<double> r_pp = {pos[0] - y[0], pos[1] - y[2], pos[2] - y[4]};
                 r_mag = std::sqrt(r_pp[0]*r_pp[0] + r_pp[1]*r_pp[1] + r_pp[2]*r_pp[2]);
