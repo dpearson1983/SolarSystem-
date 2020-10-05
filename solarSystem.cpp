@@ -37,9 +37,19 @@ void checkPlanets(std::vector<planet> &planets) {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     double h = 0.5;
     int N = 3250;
+    for (int i = 1; i < argc; ++i) {
+        std::string temp(argv[i]);
+        if (temp == "-h") {
+            h = std::stod(argv[i+1]);
+            ++i;
+        } else if (temp == "-N") {
+            N = std::stoi(argv[i+1]);
+            ++i;
+        }
+    }
     
     std::vector<planet> planets = getPlanets("planetData.dat");
     checkPlanets(planets);
